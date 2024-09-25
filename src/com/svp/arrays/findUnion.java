@@ -1,9 +1,7 @@
 package com.svp.arrays;
 
+import java.util.*;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
 
 //Extreme Brute
 //works only positive arrays
@@ -82,5 +80,46 @@ class Solution {
         int m = num2.length;
         System.out.println(findUnion(num1, num2,n,m));
     }
+}
 
+//optimized solution
+class UnionArrayOptimizedSolution{
+    static ArrayList<Integer>  findUnionOfTwoSortedArrays(int[] arr1,int[] arr2,int n,int m)
+    {
+        int i=0, j=0;
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+        ArrayList<Integer> unionArray = new ArrayList<>();
+        while (i<n && j<m){
+            if (arr1[i]<=arr2[j]){
+                if (unionArray.size()==0 || unionArray.get(unionArray.size()-1) != arr1[i])
+                    unionArray.add(arr1[i]);
+                i++;
+            }
+            else
+            {
+                if (unionArray.size()==0 || unionArray.get(unionArray.size()-1) != arr2[j])
+                    unionArray.add(arr2[j]);
+                j++;
+            }
+        }
+        while (i < n){
+            if (unionArray.get(unionArray.size()-1)!=arr1[i])
+                unionArray.add(arr1[i]);
+            i++;
+        }
+        while (j < m){
+            if (unionArray.get(unionArray.size()-1)!=arr2[j])
+                unionArray.add(arr2[i]);
+            j++;
+        }
+        return unionArray;
+    }
+    public static void main(String[] args){
+        int []  num1 = {-7,8};
+        int [] num2 = {-8,-3,8};
+        int n = num1.length;
+        int m = num2.length;
+        System.out.println(findUnionOfTwoSortedArrays(num1, num2,n,m));
+    }
 }
