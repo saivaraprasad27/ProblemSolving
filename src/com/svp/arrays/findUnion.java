@@ -92,13 +92,13 @@ class UnionArrayOptimizedSolution{
         ArrayList<Integer> unionArray = new ArrayList<>();
         while (i<n && j<m){
             if (arr1[i]<=arr2[j]){
-                if (unionArray.size()==0 || unionArray.get(unionArray.size()-1) != arr1[i])
+                if (unionArray.isEmpty() || unionArray.get(unionArray.size()-1) != arr1[i])
                     unionArray.add(arr1[i]);
                 i++;
             }
             else
             {
-                if (unionArray.size()==0 || unionArray.get(unionArray.size()-1) != arr2[j])
+                if (unionArray.isEmpty() || unionArray.get(unionArray.size()-1) != arr2[j])
                     unionArray.add(arr2[j]);
                 j++;
             }
