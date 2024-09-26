@@ -1,10 +1,11 @@
 package com.svp.arrays;
 
 //optimized solution
+//Second Largest
 public class secondLargestNumberInArray {
     public static int secondLargestNumberInArray(int [] arr ,int n){
-        int sec_num = -1;
-        int first_num =-1;
+        int sec_num = Integer.MIN_VALUE;
+        int first_num = Integer.MIN_VALUE;
         for (int i=0;i<n;i++){
             if (arr[i] > first_num){
                 sec_num = first_num;
