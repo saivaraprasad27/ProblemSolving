@@ -1,4 +1,5 @@
 package com.svp.arrays;
+import javax.swing.event.CellEditorListener;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,5 +43,40 @@ class checkMajorityElementGreaterThanNbyTwo{
         int[] nums = {6,5,5};
         int len = nums.length;
         System.out.println(betterSolution(nums,len));
+    }
+}
+
+//optimalSolution
+class majorityElement {
+    public static int majorityElementOptimal(int nums[],int len){
+        int cnt = 0;
+        int ele = 0;
+        for (int i = 0; i < len; i++){
+            if (cnt == 0){
+                cnt = 1;
+                ele = nums[i];
+            }
+            else if (ele == nums[i]) {
+                cnt++;
+            }
+            else{
+                cnt --;
+            }
+        }
+        int cnt1 = 0;
+        for (int i = 0;i < len ;i++){
+            if (ele == nums[i]){
+                cnt1++;
+            }
+        }
+        if (cnt1 > len/2){
+            return ele;
+        }
+        return -1;
+    }
+    public static void main(String[] args){
+        int[] arr = {2, 2, 1, 1, 1, 2, 2};
+        int len = arr.length;
+        System.out.println(majorityElementOptimal(arr,len));
     }
 }
