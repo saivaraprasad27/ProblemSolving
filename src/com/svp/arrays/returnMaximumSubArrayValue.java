@@ -3,7 +3,6 @@ package com.svp.arrays;
 public class returnMaximumSubArrayValue {
     public static int kadanesAlgorithm(int []arr,int n){
         if (n == 1) return arr[0];
-        int count = 0;
         int sum = 0;
         int maxi = Integer.MIN_VALUE;
         for(int i = 0;i < n; i++){
