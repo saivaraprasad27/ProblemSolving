@@ -26,10 +26,10 @@ public class TicTacToeGame {
 
             if(board[row][col] == ' '){
                 board[row][col] = player;
-                gameOver(board,player);
+                gameOver = hasWon(board,player);
 
                 if(gameOver){
-                    System.out.println("Player" + player + "has victory");
+                    System.out.print("Player " + player + " has victory");
                 }
 
                 else{
@@ -49,7 +49,7 @@ public class TicTacToeGame {
         diplayBoard(board);
     }
 
-    public static boolean gameOver(char[][] board, char player){
+    public static boolean hasWon(char[][] board, char player){
         //verify rows
         for(int row = 0; row < board.length; row++){
             if(board[row][0] == player && board[row][1] == player && board[row][2] == player){
