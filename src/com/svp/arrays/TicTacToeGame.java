@@ -64,7 +64,7 @@ public class TicTacToeGame {
             }
         }
 
-        //verify left daigonal
+        //verify left diagonal
         if(board[0][0] == player && board[1][1] == player && board[2][2] == player){
             return true;
         }
