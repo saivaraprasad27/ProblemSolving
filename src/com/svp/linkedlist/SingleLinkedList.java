@@ -95,6 +95,17 @@ public class SingleLinkedList {
         return val;
     }
 
+    public Node findNode(int value){
+        Node node = head;
+        while(node != null){
+            if(node.value == value){
+                return node;
+            }
+            node = node.next;
+        }
+        return node;
+    }
+
     public Node getNode(int index){
         Node node = head;
         for(int i = 0; i < index; i++){
