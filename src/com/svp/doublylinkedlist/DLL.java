@@ -15,14 +15,34 @@ public class DLL {
         size++;
     }
 
-    public void display(){
+    public Node findLastNode(){
         Node node = head;
+        Node last = null;
         while(node != null){
-            System.out.print(node.value + " -> ");
+            last = node;
             node = node.next;
         }
 
-        System.out.println(" END");
+        System.out.println(">>" + last.value);
+        return last;
+    }
+
+    public void display(){
+        Node node = head;
+        Node last = null;
+        while(node != null){
+            System.out.print(node.value + " -> ");
+            last = node;
+            node = node.next;
+        }
+        System.out.println("END");
+
+        System.out.println("Print the reverse List");
+        while(last != null){
+            System.out.print(last.value + " -> ");
+            last = last.prev;
+        }
+        System.out.println("END");
     }
 
     private class Node{
@@ -50,5 +70,6 @@ class Main{
         list.insertFirst(5);
         list.insertFirst(4);
         list.display();
+        list.findLastNode();
     }
 }
